@@ -1,0 +1,241 @@
+{
+  "language": {
+    "label": "Idioma"
+  },
+  "brand": {
+    "short": "Magic Pay",
+    "dashboard": "Magic Pay",
+    "footer": "Magic Pay® by Manzur Capital "
+  },
+  "topbar": {
+    "eyebrow": "Panel administrativo",
+    "userFallback": "Admin",
+    "pages": {
+      "dashboard": "Dashboard",
+      "settlements": "Liquidaciones",
+      "consolidations": "Consolidaciones"
+    },
+    "actions": {
+      "openSidebar": "Abrir menu de navegacion",
+      "closeSidebar": "Cerrar menu de navegacion",
+      "switchToLight": "Cambiar a modo dia",
+      "switchToDark": "Cambiar a modo noche"
+    },
+    "admin": {
+      "role": "Administrador",
+      "shortLabel": "Admin"
+    }
+  },
+  "common": {
+    "actions": {
+      "refresh": "Actualizar",
+      "close": "Cerrar"
+    },
+    "loading": {
+      "session": "Verificando sesion..."
+    }
+  },
+  "login": {
+    "subtitle": "Inicia sesion en el panel administrativo",
+    "rememberMe": "Recordarme",
+    "fields": {
+      "email": "Correo electronico",
+      "password": "Contrasena"
+    },
+    "placeholders": {
+      "email": "admin@magicpay.com",
+      "password": "Admin123!"
+    },
+    "actions": {
+      "submit": "Ingresar",
+      "loading": "Ingresando..."
+    },
+    "errors": {
+      "default": "No pudimos iniciar sesion",
+      "unauthorized": "Correo o contrasena mock incorrectos.",
+      "generic": "Error al iniciar sesion. Intenta de nuevo.",
+      "fallback": "Algo salio mal. Por favor, intenta de nuevo."
+    }
+  },
+  "dashboard": {
+    "admin": {
+      "title": "Dashboard administrativo",
+      "description": "Panel de control para administrar clientes que consumen el PSP: volumen, aprobacion, riesgo, liquidaciones y consolidaciones.",
+      "lastRefresh": "Ultima actualizacion",
+      "metrics": {
+        "gmv": {
+          "title": "GMV total",
+          "helper": "Volumen procesado"
+        },
+        "activeClients": {
+          "title": "Clientes PSP activos",
+          "helper": "Cuentas habilitadas"
+        },
+        "settlements": {
+          "title": "Liquidaciones por revisar",
+          "helper": "Pendientes operativos"
+        },
+        "consolidations": {
+          "title": "Consolidaciones listas",
+          "helper": "Fuentes conciliadas"
+        },
+        "conversion": {
+          "title": "Conversion",
+          "helper": "Aprobacion estimada"
+        }
+      },
+      "operationalFocus": {
+        "title": "Resumen de consumo PSP",
+        "description": "Indicadores para priorizar seguimiento financiero y operativo de clientes integrados al PSP.",
+        "monthlyVolume": "Volumen mensual",
+        "reviewQueue": "Clientes en revision",
+        "onboarding": "Onboarding abierto"
+      },
+      "clientControl": {
+        "title": "Control de clientes PSP",
+        "description": "Senales operativas para administrar cuentas, riesgo y activacion.",
+        "cards": {
+          "active": "Activos",
+          "risk": "Revision de riesgo",
+          "onboarding": "Onboarding"
+        }
+      },
+      "clientAccounts": {
+        "title": "Clientes que consumen el PSP",
+        "description": "Cuentas administradas desde la vista del operador PSP.",
+        "badge": "Cartera administrada",
+        "fields": {
+          "volume": "Volumen",
+          "transactions": "Operaciones",
+          "approval": "Aprobacion",
+          "risk": "Riesgo"
+        }
+      }
+    },
+    "metrics": {
+      "viewMetric": "Ver detalle de {{label}}"
+    },
+    "charts": {
+      "error": "No se pudieron cargar las graficas.",
+      "utcReference": {
+        "title": "Referencia horaria",
+        "helper": "Hora UTC y hora local para validar cortes.",
+        "live": "En vivo",
+        "utcTime": "Hora UTC",
+        "localTime": "Hora local",
+        "utcDate": "Fecha UTC",
+        "localDate": "Fecha local",
+        "note": "Los cierres se muestran en UTC para consistencia operativa.",
+        "footer": "Control administrativo"
+      },
+      "pulse": {
+        "title": "Pulso del dia",
+        "helper": "Volumen y operaciones por hora.",
+        "totalVolume": "Volumen total",
+        "totalTransactions": "Operaciones totales",
+        "volumeAxis": "Volumen",
+        "transactionsAxis": "Ops",
+        "empty": "No hay datos para mostrar.",
+        "volumeLegend": "Volumen",
+        "transactionsLegend": "Operaciones",
+        "tooltip": {
+          "volume": "Volumen",
+          "transactions": "Operaciones"
+        }
+      },
+      "hourly": {
+        "title": "Rendimiento por hora",
+        "helper": "Transacciones aprobadas durante el dia.",
+        "empty": "No hay rendimiento para mostrar.",
+        "totalAttempts": "Intentos",
+        "totalSuccesses": "Aprobadas",
+        "totalSalesVolume": "Volumen aprobado"
+      },
+      "statusDistribution": {
+        "title": "Distribucion de estados",
+        "helper": "Estados principales del flujo PSP.",
+        "total": "Total",
+        "items": "registros",
+        "empty": "No hay estados para mostrar."
+      }
+    },
+    "gmvDetail": {
+      "statusValues": {
+        "linkCreated": "Enlace generado",
+        "succeeded": "Exitoso",
+        "failed": "Fallida",
+        "error": "Error",
+        "unknown": "{{status}}"
+      }
+    }
+  },
+  "settlements": {
+    "title": "Liquidaciones",
+    "description": "Bandeja mock para visualizar lotes, comisiones, netos y estados de pago antes de integrar el servicio definitivo.",
+    "cards": {
+      "ready": "Listas para pagar",
+      "scheduled": "Programadas",
+      "review": "En revision",
+      "retained": "Retenidas"
+    },
+    "table": {
+      "title": "Lotes de liquidacion",
+      "description": "Datos simulados para validar layout, columnas y flujo administrativo.",
+      "headers": {
+        "id": "Lote",
+        "merchant": "Comercio",
+        "period": "Periodo",
+        "amount": "Bruto",
+        "fees": "Comision",
+        "net": "Neto",
+        "status": "Estado",
+        "scheduledAt": "Programacion"
+      }
+    }
+  },
+  "consolidations": {
+    "title": "Consolidaciones",
+    "description": "Vista mock para revisar fuentes conciliadas, diferencias y archivos pendientes del cierre operativo.",
+    "cards": {
+      "processed": "Procesado",
+      "settled": "Conciliado",
+      "difference": "Diferencia",
+      "ready": "Fuentes listas"
+    },
+    "table": {
+      "title": "Fuentes de conciliacion",
+      "description": "Registros de ejemplo para preparar la futura integracion.",
+      "headers": {
+        "id": "ID",
+        "source": "Fuente",
+        "processed": "Procesado",
+        "settled": "Conciliado",
+        "difference": "Diferencia",
+        "records": "Registros",
+        "status": "Estado",
+        "updatedAt": "Actualizado"
+      }
+    }
+  },
+  "sidebar": {
+    "menuLabel": "Menu",
+    "logout": "Cerrar sesion",
+    "actions": {
+      "close": "Cerrar menu"
+    },
+    "menu": {
+      "dashboard": "Dashboard",
+      "settlements": "Liquidaciones",
+      "consolidations": "Consolidaciones"
+    },
+    "adminCard": {
+      "title": "Control PSP",
+      "description": "Seguimiento administrativo de clientes, cortes y conciliacion."
+    }
+  },
+  "notFound": {
+    "title": "404",
+    "description": "La pagina solicitada no existe.",
+    "action": "Volver al dashboard"
+  }
+}

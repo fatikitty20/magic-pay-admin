@@ -1,0 +1,241 @@
+{
+  "language": {
+    "label": "Language"
+  },
+  "brand": {
+    "short": "Magic Pay",
+    "dashboard": "Magic Pay",
+    "footer": "Magic Pay® by Manzur Capital "
+  },
+  "topbar": {
+    "eyebrow": "Admin panel",
+    "userFallback": "Admin",
+    "pages": {
+      "dashboard": "Dashboard",
+      "settlements": "Settlements",
+      "consolidations": "Consolidations"
+    },
+    "actions": {
+      "openSidebar": "Open navigation menu",
+      "closeSidebar": "Close navigation menu",
+      "switchToLight": "Switch to light mode",
+      "switchToDark": "Switch to dark mode"
+    },
+    "admin": {
+      "role": "Administrator",
+      "shortLabel": "Admin"
+    }
+  },
+  "common": {
+    "actions": {
+      "refresh": "Refresh",
+      "close": "Close"
+    },
+    "loading": {
+      "session": "Checking session..."
+    }
+  },
+  "login": {
+    "subtitle": "Sign in to the admin panel",
+    "rememberMe": "Remember me",
+    "fields": {
+      "email": "Email",
+      "password": "Password"
+    },
+    "placeholders": {
+      "email": "admin@magicpay.com",
+      "password": "Admin123!"
+    },
+    "actions": {
+      "submit": "Sign in",
+      "loading": "Signing in..."
+    },
+    "errors": {
+      "default": "We could not sign you in",
+      "unauthorized": "Mock email or password is incorrect.",
+      "generic": "Sign in error. Please try again.",
+      "fallback": "Something went wrong. Please try again."
+    }
+  },
+  "dashboard": {
+    "admin": {
+      "title": "Admin dashboard",
+      "description": "Control panel for administering clients that consume the PSP: volume, approval, risk, settlements, and consolidations.",
+      "lastRefresh": "Last refresh",
+      "metrics": {
+        "gmv": {
+          "title": "Total GMV",
+          "helper": "Processed volume"
+        },
+        "activeClients": {
+          "title": "Active PSP clients",
+          "helper": "Enabled accounts"
+        },
+        "settlements": {
+          "title": "Settlements to review",
+          "helper": "Operational pending"
+        },
+        "consolidations": {
+          "title": "Ready consolidations",
+          "helper": "Reconciled sources"
+        },
+        "conversion": {
+          "title": "Conversion",
+          "helper": "Estimated approval"
+        }
+      },
+      "operationalFocus": {
+        "title": "PSP consumption summary",
+        "description": "Indicators for prioritizing financial and operational follow-up across PSP clients.",
+        "monthlyVolume": "Monthly volume",
+        "reviewQueue": "Clients in review",
+        "onboarding": "Open onboarding"
+      },
+      "clientControl": {
+        "title": "PSP client control",
+        "description": "Operational signals for account administration, risk, and activation.",
+        "cards": {
+          "active": "Active",
+          "risk": "Risk review",
+          "onboarding": "Onboarding"
+        }
+      },
+      "clientAccounts": {
+        "title": "Clients consuming the PSP",
+        "description": "Accounts administered from the PSP operator view.",
+        "badge": "Managed portfolio",
+        "fields": {
+          "volume": "Volume",
+          "transactions": "Operations",
+          "approval": "Approval",
+          "risk": "Risk"
+        }
+      }
+    },
+    "metrics": {
+      "viewMetric": "View {{label}} detail"
+    },
+    "charts": {
+      "error": "We could not load the charts.",
+      "utcReference": {
+        "title": "Time reference",
+        "helper": "UTC and local time for close validation.",
+        "live": "Live",
+        "utcTime": "UTC time",
+        "localTime": "Local time",
+        "utcDate": "UTC date",
+        "localDate": "Local date",
+        "note": "Closings are shown in UTC for operational consistency.",
+        "footer": "Admin control"
+      },
+      "pulse": {
+        "title": "Daily pulse",
+        "helper": "Hourly volume and operations.",
+        "totalVolume": "Total volume",
+        "totalTransactions": "Total operations",
+        "volumeAxis": "Volume",
+        "transactionsAxis": "Ops",
+        "empty": "No data to display.",
+        "volumeLegend": "Volume",
+        "transactionsLegend": "Operations",
+        "tooltip": {
+          "volume": "Volume",
+          "transactions": "Operations"
+        }
+      },
+      "hourly": {
+        "title": "Hourly performance",
+        "helper": "Approved transactions during the day.",
+        "empty": "No performance to display.",
+        "totalAttempts": "Attempts",
+        "totalSuccesses": "Approved",
+        "totalSalesVolume": "Approved volume"
+      },
+      "statusDistribution": {
+        "title": "Status distribution",
+        "helper": "Main states for the PSP flow.",
+        "total": "Total",
+        "items": "records",
+        "empty": "No statuses to display."
+      }
+    },
+    "gmvDetail": {
+      "statusValues": {
+        "linkCreated": "Link created",
+        "succeeded": "Succeeded",
+        "failed": "Failed",
+        "error": "Error",
+        "unknown": "{{status}}"
+      }
+    }
+  },
+  "settlements": {
+    "title": "Settlements",
+    "description": "Mock queue for reviewing batches, fees, net amounts, and payment states before the final service is integrated.",
+    "cards": {
+      "ready": "Ready to pay",
+      "scheduled": "Scheduled",
+      "review": "In review",
+      "retained": "Retained"
+    },
+    "table": {
+      "title": "Settlement batches",
+      "description": "Simulated data for validating layout, columns, and admin flow.",
+      "headers": {
+        "id": "Batch",
+        "merchant": "Merchant",
+        "period": "Period",
+        "amount": "Gross",
+        "fees": "Fee",
+        "net": "Net",
+        "status": "Status",
+        "scheduledAt": "Scheduled"
+      }
+    }
+  },
+  "consolidations": {
+    "title": "Consolidations",
+    "description": "Mock view for reviewing reconciled sources, differences, and pending close files.",
+    "cards": {
+      "processed": "Processed",
+      "settled": "Reconciled",
+      "difference": "Difference",
+      "ready": "Ready sources"
+    },
+    "table": {
+      "title": "Reconciliation sources",
+      "description": "Example records for preparing the future integration.",
+      "headers": {
+        "id": "ID",
+        "source": "Source",
+        "processed": "Processed",
+        "settled": "Reconciled",
+        "difference": "Difference",
+        "records": "Records",
+        "status": "Status",
+        "updatedAt": "Updated"
+      }
+    }
+  },
+  "sidebar": {
+    "menuLabel": "Menu",
+    "logout": "Sign out",
+    "actions": {
+      "close": "Close menu"
+    },
+    "menu": {
+      "dashboard": "Dashboard",
+      "settlements": "Settlements",
+      "consolidations": "Consolidations"
+    },
+    "adminCard": {
+      "title": "PSP control",
+      "description": "Administrative tracking for clients, closes, and reconciliation."
+    }
+  },
+  "notFound": {
+    "title": "404",
+    "description": "The requested page does not exist.",
+    "action": "Back to dashboard"
+  }
+}
