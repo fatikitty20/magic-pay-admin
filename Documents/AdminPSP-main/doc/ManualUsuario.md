@@ -15,8 +15,13 @@ Este manual describe el prototipo administrativo actual. La informacion mostrada
 El menu contiene:
 
 - Dashboard
+- Intenciones de pago
+- Rechazadas
+- Pagos exitosos
+- Devoluciones
 - Liquidaciones
 - Consolidaciones
+- Transacciones
 
 ## Dashboard
 
@@ -31,11 +36,25 @@ La vista Dashboard muestra:
 
 El boton `Actualizar` solo refresca la marca visual de tiempo; no consulta servicios externos.
 
+## Vistas de pagos
+
+Las vistas Intenciones de pago, Rechazadas, Pagos exitosos, Devoluciones y Transacciones muestran registros simulados con:
+
+- Orden.
+- Canal.
+- Descripcion.
+- Metodo.
+- Estado.
+- Fecha.
+- Monto.
+
+Estas pantallas no consultan endpoints y permiten descargar CSV con los datos mock visibles.
+
 ## Liquidaciones
 
 La vista Liquidaciones muestra lotes simulados con:
 
-- Comercio.
+- Canal.
 - Periodo.
 - Monto bruto.
 - Comision.

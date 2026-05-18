@@ -18,12 +18,32 @@ export const BarraSuperior = ({ isSidebarOpen, onMenuClick }: BarraSuperiorProps
   const location = useLocation();
   const { user } = useAuth();
   const pageTitle = useMemo(() => {
+    if (location.pathname.startsWith(ROUTE_PATHS.paymentIntents)) {
+      return t("topbar.pages.paymentIntents");
+    }
+
+    if (location.pathname.startsWith(ROUTE_PATHS.rejectedTransactions)) {
+      return t("topbar.pages.rejectedTransactions");
+    }
+
+    if (location.pathname.startsWith(ROUTE_PATHS.successfulPayments)) {
+      return t("topbar.pages.successfulPayments");
+    }
+
+    if (location.pathname.startsWith(ROUTE_PATHS.refunds)) {
+      return t("topbar.pages.refunds");
+    }
+
     if (location.pathname.startsWith(ROUTE_PATHS.settlements)) {
       return t("topbar.pages.settlements");
     }
 
     if (location.pathname.startsWith(ROUTE_PATHS.consolidations)) {
       return t("topbar.pages.consolidations");
+    }
+
+    if (location.pathname.startsWith(ROUTE_PATHS.transactions)) {
+      return t("topbar.pages.transactions");
     }
 
     return t("topbar.pages.dashboard");

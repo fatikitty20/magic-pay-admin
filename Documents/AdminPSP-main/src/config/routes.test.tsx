@@ -27,15 +27,20 @@ describe("appRoutes", () => {
     v7_startTransition: true,
   } as const;
 
-  it("centraliza el layout protegido con tres vistas admin", () => {
+  it("centraliza el layout protegido con vistas admin mock", () => {
     const raizProtegida = appRoutes.find((route) => route.path === ROUTE_PATHS.root && route.children);
 
     expect(raizProtegida?.requiresAuth).toBe(true);
-    expect(raizProtegida?.children).toHaveLength(3);
+    expect(raizProtegida?.children).toHaveLength(8);
     expect(raizProtegida?.children?.map((route) => route.path)).toEqual([
       PROTECTED_ROUTE_PATHS.dashboard,
+      PROTECTED_ROUTE_PATHS.paymentIntents,
+      PROTECTED_ROUTE_PATHS.rejectedTransactions,
+      PROTECTED_ROUTE_PATHS.successfulPayments,
+      PROTECTED_ROUTE_PATHS.refunds,
       PROTECTED_ROUTE_PATHS.settlements,
       PROTECTED_ROUTE_PATHS.consolidations,
+      PROTECTED_ROUTE_PATHS.transactions,
     ]);
   });
 

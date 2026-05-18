@@ -2,10 +2,18 @@ import { useMemo } from "react";
 import { useTranslation } from "react-i18next";
 
 import { TarjetaMetrica } from "@/features/dashboard/components/MetricCard";
+import {
+  DashboardHourlyPerformanceChart,
+  DashboardPulseChart,
+  DashboardStatusDistributionChart,
+  DashboardUtcReferenceCard,
+} from "@/features/dashboard/components/DashboardCharts";
 import { GmvTotalMetricCard } from "@/components/ui/GmvTotalMetricCard";
 import {
   mockDashboardKpis,
-  pspClientAccounts,
+  mockHourlyPerformance,
+  mockPulse,
+  mockStatusDistribution,
   settlementRecords,
   consolidationRecords,
 } from "@/features/admin/mockData";
@@ -33,7 +41,7 @@ const DashboardView = () => {
   const locale = i18n.resolvedLanguage === "es" ? "es-MX" : "en-US";
   const totalPendingSettlements = settlementRecords.filter((record) => record.status !== "Lista").length;
   const totalReadyConsolidations = consolidationRecords.filter((record) => record.status === "Conciliada").length;
-  const activeClients = pspClientAccounts.filter((client) => client.status === "Activo").length;
+  const totalOperations = mockDashboardKpis.totalIntentos ?? 0;
   const metrics = useMemo<Metrica[]>(
     () => [
       {
@@ -44,11 +52,12 @@ const DashboardView = () => {
         variante: "invertida",
       },
       {
-        id: "active-clients",
-        etiqueta: t("dashboard.admin.metrics.activeClients.title"),
-        valor: formatNumber(activeClients, locale),
-        ayuda: t("dashboard.admin.metrics.activeClients.helper"),
+        id: "total-operations",
+        etiqueta: t("dashboard.admin.metrics.operations.title"),
+        valor: formatNumber(totalOperations, locale),
+        ayuda: t("dashboard.admin.metrics.operations.helper"),
         variante: "suave",
+        detallePath: ROUTE_PATHS.transactions,
       },
       {
         id: "settlements",
@@ -72,9 +81,10 @@ const DashboardView = () => {
         valor: `${formatPercent(mockDashboardKpis.conversionRate ?? 0, locale)}%`,
         ayuda: t("dashboard.admin.metrics.conversion.helper"),
         variante: "suave",
+        detallePath: ROUTE_PATHS.successfulPayments,
       },
     ],
-    [activeClients, locale, t, totalPendingSettlements, totalReadyConsolidations],
+    [locale, t, totalOperations, totalPendingSettlements, totalReadyConsolidations],
   );
 
   return (
@@ -99,6 +109,34 @@ const DashboardView = () => {
             </div>
           );
         })}
+      </section>
+
+      <section className="grid gap-4 xl:grid-cols-[minmax(0,2fr)_minmax(0,1fr)]">
+        <DashboardPulseChart
+          data={mockPulse}
+          isLoading={false}
+          isError={false}
+          errorMessage={t("dashboard.charts.error")}
+          locale={locale}
+        />
+        <DashboardStatusDistributionChart
+          data={mockStatusDistribution}
+          isLoading={false}
+          isError={false}
+          errorMessage={t("dashboard.charts.error")}
+          locale={locale}
+        />
+      </section>
+
+      <section className="grid gap-4 xl:grid-cols-[minmax(0,2fr)_minmax(0,1fr)]">
+        <DashboardHourlyPerformanceChart
+          data={mockHourlyPerformance}
+          isLoading={false}
+          isError={false}
+          errorMessage={t("dashboard.charts.error")}
+          locale={locale}
+        />
+        <DashboardUtcReferenceCard locale={locale} />
       </section>
     </div>
   );

@@ -5,15 +5,20 @@
   "brand": {
     "short": "Magic Pay",
     "dashboard": "Magic Pay",
-    "footer": "Magic Pay® by Manzur Capital "
+    "footer": "Magic Pay\u00ae by Manzur Capital"
   },
   "topbar": {
     "eyebrow": "Panel administrativo",
     "userFallback": "Admin",
     "pages": {
       "dashboard": "Dashboard",
+      "paymentIntents": "Intenciones de pago",
+      "rejectedTransactions": "Rechazadas",
+      "successfulPayments": "Pagos exitosos",
+      "refunds": "Devoluciones",
       "settlements": "Liquidaciones",
-      "consolidations": "Consolidaciones"
+      "consolidations": "Consolidaciones",
+      "transactions": "Transacciones"
     },
     "actions": {
       "openSidebar": "Abrir menu de navegacion",
@@ -29,7 +34,8 @@
   "common": {
     "actions": {
       "refresh": "Actualizar",
-      "close": "Cerrar"
+      "close": "Cerrar",
+      "downloadCsv": "Descargar CSV"
     },
     "loading": {
       "session": "Verificando sesion..."
@@ -60,16 +66,16 @@
   "dashboard": {
     "admin": {
       "title": "Dashboard administrativo",
-      "description": "Panel de control para administrar clientes que consumen el PSP: volumen, aprobacion, riesgo, liquidaciones y consolidaciones.",
+      "description": "Panel de control administrativo para volumen, aprobacion, riesgo, liquidaciones y consolidaciones.",
       "lastRefresh": "Ultima actualizacion",
       "metrics": {
         "gmv": {
           "title": "GMV total",
           "helper": "Volumen procesado"
         },
-        "activeClients": {
-          "title": "Clientes PSP activos",
-          "helper": "Cuentas habilitadas"
+        "operations": {
+          "title": "Operaciones totales",
+          "helper": "Intentos procesados"
         },
         "settlements": {
           "title": "Liquidaciones por revisar",
@@ -82,33 +88,6 @@
         "conversion": {
           "title": "Conversion",
           "helper": "Aprobacion estimada"
-        }
-      },
-      "operationalFocus": {
-        "title": "Resumen de consumo PSP",
-        "description": "Indicadores para priorizar seguimiento financiero y operativo de clientes integrados al PSP.",
-        "monthlyVolume": "Volumen mensual",
-        "reviewQueue": "Clientes en revision",
-        "onboarding": "Onboarding abierto"
-      },
-      "clientControl": {
-        "title": "Control de clientes PSP",
-        "description": "Senales operativas para administrar cuentas, riesgo y activacion.",
-        "cards": {
-          "active": "Activos",
-          "risk": "Revision de riesgo",
-          "onboarding": "Onboarding"
-        }
-      },
-      "clientAccounts": {
-        "title": "Clientes que consumen el PSP",
-        "description": "Cuentas administradas desde la vista del operador PSP.",
-        "badge": "Cartera administrada",
-        "fields": {
-          "volume": "Volumen",
-          "transactions": "Operaciones",
-          "approval": "Aprobacion",
-          "risk": "Riesgo"
         }
       }
     },
@@ -169,6 +148,58 @@
       }
     }
   },
+  "operationViews": {
+    "back": "Volver al dashboard",
+    "paymentIntents": {
+      "title": "Intenciones de pago",
+      "description": "Vista administrativa mock para revisar enlaces generados, intentos pendientes y aprobaciones tempranas sin consumir endpoints."
+    },
+    "rejectedTransactions": {
+      "title": "Transacciones rechazadas",
+      "description": "Vista administrativa mock para analizar rechazos, motivos operativos y montos afectados sin llamadas HTTP."
+    },
+    "successfulPayments": {
+      "title": "Pagos exitosos",
+      "description": "Vista administrativa mock para monitorear pagos aprobados y volumen procesado con datos locales."
+    },
+    "refunds": {
+      "title": "Devoluciones",
+      "description": "Vista administrativa mock para revisar reembolsos conciliados y montos devueltos."
+    },
+    "transactions": {
+      "title": "Transacciones",
+      "description": "Resumen administrativo mock de la actividad transaccional de la plataforma."
+    },
+    "cards": {
+      "records": {
+        "title": "Registros",
+        "helper": "Datos mock locales"
+      },
+      "amount": {
+        "title": "Monto total",
+        "helper": "Valor acumulado"
+      }
+    },
+    "status": {
+      "LINK_CREATED": "Enlace generado",
+      "SUCCEEDED": "Exitosa",
+      "REJECTED": "Rechazada",
+      "REFUNDED": "Devuelta",
+      "PENDING": "Pendiente"
+    },
+    "table": {
+      "title": "Detalle operativo",
+      "description": "Registros de ejemplo para validar la vista antes de conectar servicios reales.",
+      "id": "ID",
+      "orderId": "Orden",
+      "channel": "Canal",
+      "description": "Descripcion",
+      "method": "Metodo",
+      "status": "Estado",
+      "createdAt": "Creado",
+      "amount": "Monto"
+    }
+  },
   "settlements": {
     "title": "Liquidaciones",
     "description": "Bandeja mock para visualizar lotes, comisiones, netos y estados de pago antes de integrar el servicio definitivo.",
@@ -183,7 +214,7 @@
       "description": "Datos simulados para validar layout, columnas y flujo administrativo.",
       "headers": {
         "id": "Lote",
-        "merchant": "Comercio",
+        "channel": "Canal",
         "period": "Periodo",
         "amount": "Bruto",
         "fees": "Comision",
@@ -225,12 +256,17 @@
     },
     "menu": {
       "dashboard": "Dashboard",
+      "paymentIntents": "Intenciones de pago",
+      "rejectedTransactions": "Rechazadas",
+      "successfulPayments": "Pagos exitosos",
+      "refunds": "Devoluciones",
       "settlements": "Liquidaciones",
-      "consolidations": "Consolidaciones"
+      "consolidations": "Consolidaciones",
+      "transactions": "Transacciones"
     },
     "adminCard": {
       "title": "Control PSP",
-      "description": "Seguimiento administrativo de clientes, cortes y conciliacion."
+      "description": "Seguimiento administrativo de cortes y conciliacion."
     }
   },
   "notFound": {

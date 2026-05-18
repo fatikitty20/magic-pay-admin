@@ -1,8 +1,13 @@
 import {
+  Ban,
+  CheckCircle2,
   FileCheck2,
   LayoutDashboard,
   Layers3,
+  Link2,
   LogOut,
+  ReceiptText,
+  RotateCcw,
   Store,
   type LucideIcon,
   X,
@@ -29,8 +34,13 @@ type BarraLateralProps = {
 
 const iconByKey: Record<string, LucideIcon> = {
   dashboard: LayoutDashboard,
+  "payment-intents": Link2,
+  "rejected-transactions": Ban,
+  "successful-payments": CheckCircle2,
+  refunds: RotateCcw,
   settlements: FileCheck2,
   consolidations: Layers3,
+  transactions: ReceiptText,
 };
 
 export const BarraLateral = ({

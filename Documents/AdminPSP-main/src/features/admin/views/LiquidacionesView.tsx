@@ -56,7 +56,7 @@ const LiquidacionesView = () => {
             <thead className="bg-muted/40 text-xs uppercase text-muted-foreground">
               <tr>
                 <th className="px-4 py-3 text-left font-semibold">{t("settlements.table.headers.id")}</th>
-                <th className="px-4 py-3 text-left font-semibold">{t("settlements.table.headers.merchant")}</th>
+                <th className="px-4 py-3 text-left font-semibold">{t("settlements.table.headers.channel")}</th>
                 <th className="px-4 py-3 text-left font-semibold">{t("settlements.table.headers.period")}</th>
                 <th className="px-4 py-3 text-right font-semibold">{t("settlements.table.headers.amount")}</th>
                 <th className="px-4 py-3 text-right font-semibold">{t("settlements.table.headers.fees")}</th>
@@ -69,7 +69,7 @@ const LiquidacionesView = () => {
               {settlementRecords.map((record) => (
                 <tr key={record.id} className="bg-card transition hover:bg-muted/20">
                   <td className="whitespace-nowrap px-4 py-3 font-mono text-xs text-foreground">{record.id}</td>
-                  <td className="whitespace-nowrap px-4 py-3 font-semibold text-foreground">{record.merchant}</td>
+                  <td className="whitespace-nowrap px-4 py-3 font-semibold text-foreground">{record.channel}</td>
                   <td className="whitespace-nowrap px-4 py-3 text-muted-foreground">{record.period}</td>
                   <td className="whitespace-nowrap px-4 py-3 text-right text-muted-foreground">{formatMoney(record.amount, locale)}</td>
                   <td className="whitespace-nowrap px-4 py-3 text-right text-muted-foreground">{formatMoney(record.fees, locale)}</td>

@@ -18,7 +18,7 @@ export type SettlementStatus = "Programada" | "En revision" | "Lista" | "Retenid
 
 export type SettlementRecord = {
   id: string;
-  merchant: string;
+  channel: string;
   period: string;
   amount: number;
   fees: number;
@@ -40,18 +40,23 @@ export type ConsolidationRecord = {
   updatedAt: string;
 };
 
-export type PspClientStatus = "Activo" | "Revision" | "Onboarding";
+export type PaymentOperationStatus =
+  | "LINK_CREATED"
+  | "SUCCEEDED"
+  | "REJECTED"
+  | "REFUNDED"
+  | "PENDING";
 
-export type PspClientAccount = {
+export type PaymentOperationRecord = {
   id: string;
-  name: string;
-  segment: string;
-  monthlyVolume: number;
-  transactions: number;
-  approvalRate: number;
-  riskScore: string;
-  status: PspClientStatus;
-  lastClose: string;
+  orderId: string;
+  channel: string;
+  description: string;
+  method: string;
+  status: PaymentOperationStatus;
+  createdAt: string;
+  amountMinorUnits: number;
+  currency: "USD";
 };
 
 export const mockDashboardKpis: DashboardKpis = {
@@ -87,57 +92,150 @@ export const mockPulse: DashboardPulsePoint[] = [
   { hour: 18, transactionCount: 1648, moneyVolume: 87620 },
 ];
 
-export const pspClientAccounts: PspClientAccount[] = [
+export const paymentIntentRecords: PaymentOperationRecord[] = [
   {
-    id: "CLI-PSP-001",
-    name: "Nova Retail Group",
-    segment: "Retail",
-    monthlyVolume: 48620000,
-    transactions: 6420,
-    approvalRate: 94.8,
-    riskScore: "Bajo",
-    status: "Activo",
-    lastClose: "2026-05-15 14:00",
+    id: "INT-2026-0515-001",
+    orderId: "ORD-74510",
+    channel: "Checkout web",
+    description: "Link generado para cobro administrativo",
+    method: "Link",
+    status: "LINK_CREATED",
+    createdAt: "2026-05-15 08:42",
+    amountMinorUnits: 128500,
+    currency: "USD",
   },
   {
-    id: "CLI-PSP-002",
-    name: "Andes Travel Hub",
-    segment: "Travel",
-    monthlyVolume: 32870000,
-    transactions: 2810,
-    approvalRate: 91.4,
-    riskScore: "Medio",
-    status: "Revision",
-    lastClose: "2026-05-15 13:30",
+    id: "INT-2026-0515-002",
+    orderId: "ORD-74511",
+    channel: "POS virtual",
+    description: "Intento aprobado desde consola",
+    method: "Card",
+    status: "SUCCEEDED",
+    createdAt: "2026-05-15 09:18",
+    amountMinorUnits: 84200,
+    currency: "USD",
   },
   {
-    id: "CLI-PSP-003",
-    name: "Metro Food Services",
-    segment: "Food service",
-    monthlyVolume: 21450000,
-    transactions: 5340,
-    approvalRate: 96.1,
-    riskScore: "Bajo",
-    status: "Activo",
-    lastClose: "2026-05-15 12:00",
+    id: "INT-2026-0515-003",
+    orderId: "ORD-74512",
+    channel: "Link de pago",
+    description: "Pendiente de confirmacion",
+    method: "Link",
+    status: "PENDING",
+    createdAt: "2026-05-15 10:06",
+    amountMinorUnits: 64000,
+    currency: "USD",
+  },
+];
+
+export const rejectedTransactionRecords: PaymentOperationRecord[] = [
+  {
+    id: "REJ-2026-0515-001",
+    orderId: "ORD-74302",
+    channel: "Checkout web",
+    description: "Banco emisor rechazo la autorizacion",
+    method: "Card",
+    status: "REJECTED",
+    createdAt: "2026-05-15 11:22",
+    amountMinorUnits: 21500,
+    currency: "USD",
   },
   {
-    id: "CLI-PSP-004",
-    name: "Atlas Digital Goods",
-    segment: "Digital",
-    monthlyVolume: 12840000,
-    transactions: 1490,
-    approvalRate: 88.9,
-    riskScore: "Alto",
-    status: "Onboarding",
-    lastClose: "Pendiente",
+    id: "REJ-2026-0515-002",
+    orderId: "ORD-74344",
+    channel: "POS virtual",
+    description: "Validacion antifraude no aprobada",
+    method: "Card",
+    status: "REJECTED",
+    createdAt: "2026-05-15 12:09",
+    amountMinorUnits: 57900,
+    currency: "USD",
   },
+  {
+    id: "REJ-2026-0515-003",
+    orderId: "ORD-74388",
+    channel: "Link de pago",
+    description: "Tiempo de autenticacion agotado",
+    method: "3DS",
+    status: "REJECTED",
+    createdAt: "2026-05-15 13:31",
+    amountMinorUnits: 34000,
+    currency: "USD",
+  },
+];
+
+export const successfulPaymentRecords: PaymentOperationRecord[] = [
+  {
+    id: "PAY-2026-0515-001",
+    orderId: "ORD-74210",
+    channel: "Checkout web",
+    description: "Pago procesado correctamente",
+    method: "Card",
+    status: "SUCCEEDED",
+    createdAt: "2026-05-15 08:15",
+    amountMinorUnits: 132000,
+    currency: "USD",
+  },
+  {
+    id: "PAY-2026-0515-002",
+    orderId: "ORD-74248",
+    channel: "POS virtual",
+    description: "Pago aprobado en lote matutino",
+    method: "Card",
+    status: "SUCCEEDED",
+    createdAt: "2026-05-15 09:47",
+    amountMinorUnits: 284900,
+    currency: "USD",
+  },
+  {
+    id: "PAY-2026-0515-003",
+    orderId: "ORD-74301",
+    channel: "Link de pago",
+    description: "Cobro completado desde link",
+    method: "Link",
+    status: "SUCCEEDED",
+    createdAt: "2026-05-15 14:05",
+    amountMinorUnits: 96500,
+    currency: "USD",
+  },
+];
+
+export const refundRecords: PaymentOperationRecord[] = [
+  {
+    id: "REF-2026-0515-001",
+    orderId: "ORD-74112",
+    channel: "Checkout web",
+    description: "Devolucion total aprobada",
+    method: "Refund",
+    status: "REFUNDED",
+    createdAt: "2026-05-15 10:40",
+    amountMinorUnits: 48500,
+    currency: "USD",
+  },
+  {
+    id: "REF-2026-0515-002",
+    orderId: "ORD-74176",
+    channel: "POS virtual",
+    description: "Devolucion parcial conciliada",
+    method: "Refund",
+    status: "REFUNDED",
+    createdAt: "2026-05-15 12:55",
+    amountMinorUnits: 26000,
+    currency: "USD",
+  },
+];
+
+export const transactionRecords: PaymentOperationRecord[] = [
+  ...successfulPaymentRecords,
+  ...paymentIntentRecords,
+  ...rejectedTransactionRecords,
+  ...refundRecords,
 ];
 
 export const settlementRecords: SettlementRecord[] = [
   {
     id: "LIQ-2026-0515-01",
-    merchant: "Nova Retail Group",
+    channel: "Canal retail",
     period: "15 May 2026",
     amount: 428500,
     fees: 12426,
@@ -147,7 +245,7 @@ export const settlementRecords: SettlementRecord[] = [
   },
   {
     id: "LIQ-2026-0515-02",
-    merchant: "Metro Food Services",
+    channel: "Canal food service",
     period: "15 May 2026",
     amount: 284900,
     fees: 8262,
@@ -157,7 +255,7 @@ export const settlementRecords: SettlementRecord[] = [
   },
   {
     id: "LIQ-2026-0515-03",
-    merchant: "Andes Travel Hub",
+    channel: "Canal travel",
     period: "14 May 2026",
     amount: 198700,
     fees: 5762,
@@ -167,7 +265,7 @@ export const settlementRecords: SettlementRecord[] = [
   },
   {
     id: "LIQ-2026-0515-04",
-    merchant: "Atlas Digital Goods",
+    channel: "Canal digital",
     period: "14 May 2026",
     amount: 96500,
     fees: 2799,

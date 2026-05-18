@@ -21,10 +21,15 @@ Admin123!
 ## Vistas activas
 
 - `/dashboard`
+- `/dashboard/payment-intents`
+- `/dashboard/rejected-transactions`
+- `/dashboard/successful-payments`
+- `/dashboard/refunds`
 - `/dashboard/liquidaciones`
 - `/dashboard/consolidaciones`
+- `/transactions`
 
-El menu lateral solo muestra esas tres opciones y el cierre de sesion.
+El menu lateral muestra solo vistas administrativas mock y el cierre de sesion.
 
 ## Scripts
 
@@ -48,8 +53,13 @@ src/
     admin/
       mockData.ts
       views/
+        PaymentIntentsView.tsx
+        RejectedTransactionsView.tsx
+        SuccessfulPaymentsView.tsx
+        RefundsView.tsx
         LiquidacionesView.tsx
         ConsolidacionesView.tsx
+        TransactionsView.tsx
     auth/
       authService.ts
       roles.ts
@@ -74,6 +84,7 @@ src/features/admin/mockData.ts
 Desde ahi se alimentan:
 
 - KPIs y graficas del dashboard.
+- Intenciones, rechazos, pagos exitosos, devoluciones y transacciones.
 - Lotes de liquidacion.
 - Fuentes de consolidacion.
 

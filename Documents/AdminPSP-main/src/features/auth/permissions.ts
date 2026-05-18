@@ -2,6 +2,7 @@ import { ROLES, type RolUsuario } from "./roles";
 
 export type Permiso =
   | "ver_dashboard_admin"
+  | "ver_operaciones_pago"
   | "ver_liquidaciones"
   | "ver_consolidaciones"
   | "exportar_datos";
@@ -9,6 +10,7 @@ export type Permiso =
 export const PERMISOS_POR_ROL: Record<RolUsuario, Permiso[]> = {
   [ROLES.ADMIN]: [
     "ver_dashboard_admin",
+    "ver_operaciones_pago",
     "ver_liquidaciones",
     "ver_consolidaciones",
     "exportar_datos",

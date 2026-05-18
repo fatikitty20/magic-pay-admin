@@ -2,7 +2,7 @@
 
 ## Purpose
 
-The application is now an admin-only mock prototype. It renders the future administration experience for dashboard, settlements, and consolidations without HTTP integrations.
+The application is now an admin-only mock prototype. It renders the future administration experience for dashboard, payments, transactions, settlements, and consolidations without HTTP integrations.
 
 ## Mock authentication
 
@@ -32,8 +32,13 @@ src/config/routes.tsx
 Protected routes:
 
 - `/dashboard`
+- `/dashboard/payment-intents`
+- `/dashboard/rejected-transactions`
+- `/dashboard/successful-payments`
+- `/dashboard/refunds`
 - `/dashboard/liquidaciones`
 - `/dashboard/consolidaciones`
+- `/transactions`
 
 ## Admin mocks
 
@@ -47,6 +52,7 @@ It contains:
 
 - Dashboard KPIs.
 - Chart series.
+- Mock payment intents, rejected transactions, successful payments, refunds, and transactions.
 - Settlement records.
 - Consolidation records.
 
@@ -54,4 +60,4 @@ It contains:
 
 When a backend exists, create domain services and replace the data source currently provided by `mockData.ts`.
 
-The navigation scope should remain focused on the three admin views unless product requirements change.
+No endpoints were copied from the other project; these views run on local mock data.
